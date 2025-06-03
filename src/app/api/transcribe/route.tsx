@@ -16,16 +16,13 @@ export async function POST(req: Request) {
     apiFormData.append("file", new Blob([buffer]), file.name);
     apiFormData.append("model", "whisper-1");
 
-    const openaiRes = await fetch(
-      "https://novum-poc.openai.azure.com/openai/deployments/whisper/audio/transcriptions?api-version=2024-06-01",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.OPENAI_WHISPER_API_KEY}`,
-        },
-        body: apiFormData,
-      }
-    );
+    const openaiRes = await fetch(`${process.env.OPENAI_WHISPER_API_URL}`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.OPENAI_WHISPER_API_KEY}`,
+      },
+      body: apiFormData,
+    });
 
     const data = await openaiRes.json();
 
