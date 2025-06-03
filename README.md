@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OpenAI and Whisper example, recording audio from mic and then sending it to whisper.
 
 ## Getting Started
 
